@@ -1,0 +1,96 @@
+<div ng-include="'/public/views/includes/subheader.html'"></div>
+
+<div class="content-dashbord">
+
+  <div class="jumbotron" style="padding: 25px;border-radius: 8px;background-color: #2982cc;" ng-show="initDash == true">
+    <h1>Dashboard</h1>
+    <p>Selecione um dashboard.</p>
+    <!-- <p><a class="btn btn-primary btn-lg">Learn more</a></p> -->
+  </div>
+
+
+</div>
+
+<div class="content-dashbord" ng-show="dashboard1 == true">
+  <div class="" id="dashboard-1" style="width:600px; !important; height:400px !important;" >
+    <h3>Quantidade de pedidos por dia ( 5 Ultimos dias)</h3>
+    <canvas id="myChart-1" width="700px" height="420px"></canvas>
+  </div>
+  <div class="content-table-dashboard" style="margin-top:0px;">
+    <h3>Quantidade de pedidos por dia</h3>
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>ID Pedido</th>
+          <th>Data</th>
+          <th>Qauntidade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in dataTable">
+          <td>{{item.id}}</td>
+          <td>{{item.data_de_compra}}</td>
+          <td>{{quantPedidoByData[$index]}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="content-dashbord" ng-show="dashboard2 == true">
+  <div class="" id="dashboard-1" style="width:600px; !important; height:400px !important;" >
+    <h3>Quantidade de pedidos por Solicitante</h3>
+    <canvas id="myChart-2" width="700px" height="420px"></canvas>
+  </div>
+  <div class="content-table-dashboard" style="margin-top:0px;">
+    <h3>Quantidade de pedidos por Solicitante ( 4 Solicitantes )</h3>
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>ID Solicitante</th>
+          <th>Nome</th>
+          <th>Qauntidade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in allSolicitantes">
+          <td>{{item.id}}</td>
+          <td>{{item.nome}}</td>
+          <td>{{solicitantePedidoArray[$index]}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="content-dashbord" ng-show="dashboard3 == true">
+  <div class="content-table-dashboard" style="margin-top:0px;">
+    <h3>Pedidos pendentes</h3>
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>ID Pedido</th>
+          <th>Solicitante</th>
+          <th>Data da compra</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in pedidoPendente">
+          <td>{{item.id}}</td>
+          <td>{{item.nome}}</td>
+          <td>{{item.data_de_compra}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!--
+<div class="" id="dashboard-2" ng-model="dashboard-2" style="width:400px; !important; height:400px !important;" >
+  <canvas id="myChart-2" width="400" height="400"></canvas>
+</div>
+
+<div class="" id="dashboard-3" ng-model="dashboard-1" style="width:400px; !important; height:400px !important;" >
+  <canvas id="myChart-3" width="400" height="400"></canvas>
+</div> -->

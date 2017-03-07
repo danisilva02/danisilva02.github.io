@@ -1,0 +1,344 @@
+<div ng-include="'/app/views/includes/subheader-processo.html'"></div>
+<div class="container">
+  <div class="content-filter">
+    <div class="form-group">
+      <label class="control-label" style="color:#545454;">Numero do pedido</label>
+      <div class="input-group">
+        <!-- <span class="input-group-addon">
+          <select class="form-control" name="">
+              <option value="{{item.name}}" ng-repeat="item in subheader">{{item.name}}</option>
+          </select>
+        </span> -->
+        <form ng-submit="filterPedido(pedidofiltered)">
+
+          <input type="text" class="form-control" ng-model="pedidofiltered" placeholder="Exemplo : ">
+
+        </form>
+      </div>
+    </div>
+    <div ng-include="'/app/views/includes/alert.html'" ng-if="buscaPrdido == false"></div>
+  </div>
+  <!-- <div class="content-table">
+    <h3>Solicitantes</h3>
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Telefone</th>
+          <th>Cpf</th>
+          <th>Cep</th>
+          <th>Cidade</th>
+          <th>Estado</th>
+          <th>Pais</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="items in solicitantes">
+          <td>{{items.nome}}</td>
+          <td>{{items.telefone}}</td>
+          <td>{{items.cpf}}</td>
+          <td>{{items.cep}}</td>
+          <td>{{items.cidade}}</td>
+          <td>{{items.estado}}</td>
+          <td>{{items.pais}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+  <!-- <div class="content-table">
+    <h3>Materiais</h3>
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Column heading</th>
+          <th>Column heading</th>
+          <th>Column heading</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+  <!-- <div class="content-table">
+    <h3>Insumos</h3>
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Column heading</th>
+          <th>Column heading</th>
+          <th>Column heading</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+  <!-- <div class="content-table">
+    <h3>Pedidos</h3>
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Column heading</th>
+          <th>Column heading</th>
+          <th>Column heading</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+  <div class="content-dados-pedido">
+    <form class="form-horizontal" ng-show="buscaPrdido == true">
+      <fieldset>
+        <legend>Dados do pedido</legend>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Numero do Pedido</label>
+          <div class="col-lg-10">
+            <input type="text" disabled="disabled" class="form-control" ng-model="itemPedido.id" id="pedido" placeholder="peidido">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword" class="col-lg-2 control-label">Material</label>
+          <div class="col-lg-10">
+            <!-- <input type="text" class="form-control" ng-model="itemPedido.material" id="material" placeholder="Material"> -->
+            <ul style="display: block;">
+              <li ng-repeat="item in insumosData">{{item.descricao}}</li></br>
+            </ul>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="textArea" class="col-lg-2 control-label">Data de Compra</label>
+          <div class="col-lg-10">
+            <input type="data" class="form-control" disabled="disabled" ng-model="itemPedido.data_de_compra" id="dataCompra" placeholder="Data de Compra">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="textArea" class="col-lg-2 control-label">Quantidade Material</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" disabled="disabled" ng-model="itemPedido.quantMaterial" id="quantMaterial" placeholder="Quantidade Materil">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="textArea"  class="col-lg-2 control-label">Preço Total</label>
+          <div class="col-lg-10">
+            <input type="text" disabled="disabled" class="form-control" value="{{itemPedido.precoTotal | currency : 'R$  ' : 2}}" id="precoTotal" placeholder="Preço Total">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <!-- <button type="reset" class="btn btn-default">Cancel</button> -->
+            <!-- <button type="submit" class="btn btn-primary">Atualizar</button> -->
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="content-dados-pedido" ng-show="buscaPrdido == true">
+    <fieldset>
+      <legend>Dados do Insumo</legend>
+    <fieldset>
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>Marca</th>
+          <th>Descrição</th>
+          <th>Quantidade</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in insumosData">
+          <td>{{item.marca}}</td>
+          <td>{{item.descricao}}</td>
+          <td>{{item.quantidade}}</td>
+          <td>{{item.preco | currency : "R$ " : 2}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button ng-click="activeModal()" style="margin-bottom: 30px;" class="btn btn-primary">Adicionar novo insumo</button>
+  </div>
+  <div class="content-dados-pedido">
+    <form class="form-horizontal" ng-show="buscaPrdido == true">
+      <fieldset>
+        <legend>Dados do Solicitante</legend>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Nome Completo</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" required="required" ng-model="itemSoli.nome" id="" placeholder="Nome Completo">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword" class="col-lg-2 control-label">Telefone</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" required="required" ng-model="itemSoli.telefone" id="" placeholder="Telefone">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="textArea" class="col-lg-2 control-label">CPF</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" required="required" ng-model="itemSoli.cpf" id="" placeholder="CPF">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="textArea" class="col-lg-2 control-label">CEP</label>
+          <div class="col-lg-10" style="position: relative;">
+            <input type="text" ng-change="setEndereco(itemSoli.cep)" required="required" class="form-control" ng-model="itemSoli.cep" size="10" maxlength="9" id="cep-solicitante" placeholder="CEP">
+            <span style="position: absolute; right: 30px; top: 4px;" ng-show="activeLoad == true">
+              <img width="30px" src="images/pageloader.gif" alt="" />
+            </span>
+          </div>
+          <div class="alert alert-dismissible alert-danger" ng-if="errorCep == true" style="margin-top: 50px;width: 60%;margin-left: 169px;">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <h4>Error</h4>
+            <p>Cep não encontrado, por favor digite novamente</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="textArea" class="col-lg-2 control-label">Endereço</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" required="required" ng-model="itemSoli.ende" id="" placeholder="Endereço">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="textArea" class="col-lg-2 control-label">Complemento</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" ng-model="itemSoli.comple" id="" placeholder="Complemento">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="textArea" class="col-lg-2 control-label">Cidade</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control"required="required"  ng-model="itemSoli.cidade" id="" placeholder="Cidade">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="textArea" class="col-lg-2 control-label">Estado</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" required="required" ng-model="itemSoli.estado" id="" placeholder="Estado">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <!-- <button type="reset" class="btn btn-default">Cancel</button> -->
+            <button type="submit" disabled class="btn btn-primary">Atualizar</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="content-dados-pedido">
+    <form class="form-horizontal" ng-show="buscaPrdido == true">
+      <fieldset>
+        <legend>Dados da Entrega</legend>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">CEP</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" ng-model="itemSoli.cep" id="" placeholder="CEP">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword" class="col-lg-2 control-label">Endereço</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" ng-model="itemSoli.ende" id="" placeholder="Endereço">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="textArea" class="col-lg-2 control-label">Complemento</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" ng-model="itemSoli.comple" id="" placeholder="Complemento">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="textArea" class="col-lg-2 control-label">Cidade</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" ng-model="itemSoli.cidade" id="" placeholder="Cidade">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="textArea" class="col-lg-2 control-label">Estado</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" ng-model="itemSoli.estado" id="" placeholder="Estado">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <!-- <button type="reset" class="btn btn-default">Cancel</button> -->
+            <!-- <button type="submit" class="btn btn-primary">Atualizar</button> -->
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="content-dados-pedido">
+    <div class="calculos" ng-show="buscaPrdido == true">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Calculo</h3>
+      </div>
+      <div class="panel-body">
+        {{itemPedido.precoTotal | currency : 'R$  ' : 2}}
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ng-click="closeModal()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Adicionar insumo</h4>
+      </div>
+      <form class="" ng-submit="addInsumo(newInsumo)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-2 control-label">Material</label>
+            <div class="col-lg-10">
+                <!-- <option selected="selected">Selecione um material</option> -->
+                <select class="form-control" ng-model="newInsumo.item" required>
+                <option value="{{item}}"  ng-repeat="item in materiaisDatas">{{item.nome}} - {{item.marca}} - {{item.preco}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-2 control-label">Descrição</label>
+            <div class="col-lg-10">
+              <input type="text" ng-model="newInsumo.desc" class="form-control" id="" required placeholder="Descrição">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-2 control-label">Quantidade</label>
+            <div class="col-lg-10">
+              <input type="number" ng-model="newInsumo.quant" class="form-control" id="" required placeholder="Quantidade">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="closeModal()">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>

@@ -5,7 +5,6 @@
 ### Engenheiro de Dados · Engenheiro de Software · Apaixonado por buildar ideias.
  
 </div>
----
  
 ## Sobre mim
  

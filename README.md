@@ -23,15 +23,15 @@ Atuo na interseção entre Engenharia de Dados (Data Lake, ETL, Streaming, Analy
  
 ## 🛠️ Stack & Tecnologias
  
-![AWS](https://img.shields.io/badge/AWS-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white)
-![GCP](https://img.shields.io/badge/Nuxt-00DC82?style=flat-square&logo=nuxt.js&logoColor=white)
-![Go](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Python](https://img.shields.io/badge/Pinia-F7D336?style=flat-square&logo=vue.js&logoColor=black)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-FF9900?style=flat-square)
+![GCP](https://img.shields.io/badge/GCP-4285F4?style=flat-square&logo=googlecloud&logoColor=white)
+![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white)
  
 ---
  
 ## 📬 Conecte-se
  
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/daniel-miranda-526215121)
-[![Cal](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/engpatrickmonteiro)
+[![Agende um papo comigo](https://img.shields.io/badge/Cal-0077B5?style=flat-square&logo=cal&logoColor=white)](https://cal.com/daniel-miranda-zr05zb)

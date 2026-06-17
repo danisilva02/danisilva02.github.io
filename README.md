@@ -34,4 +34,4 @@ Atuo na interseção entre Engenharia de Dados (Data Lake, ETL, Streaming, Analy
 ## 📬 Conecte-se
  
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/daniel-miranda-526215121)
-[![Agende um papo comigo](https://img.shields.io/badge/Agende-Um-Papo-Comigo-0077B5?style=flat-square&logo=cal&logoColor=white)](https://cal.com/daniel-miranda-zr05zb)
+[![Agende um papo comigo](https://img.shields.io/badge/Cal?style=flat-square&logo=cal&logoColor=white)](https://cal.com/daniel-miranda-zr05zb)
